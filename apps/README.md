@@ -10,7 +10,7 @@ c## Building the rails App
 
 1. Add `binding.pry` or `byebug` in your code where you want to put the breakpoint.
 2. Run `docker-compose run --service-port --rm web` in your console to run the rails app in Debug mode
-3. Access the endpoint you are debugging to go into debugging mode in pry or byebug
+3. Access the endpoint you ae debugging to go into debugging mode in pry or byebug
 
 ## Rails CHEATSHEET using docker
 
