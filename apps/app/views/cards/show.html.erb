@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @card.title %>
-</p>
-
+</h1>
+<h3>By user: <%=UsersController.get(@card.user_id).username%> </h3>
 <p>
   <strong>Category:</strong>
   <%= @card.category %>
@@ -18,12 +17,9 @@
 <p>
   <strong>Views:</strong>
   <%= @card.views %>
+  
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @card.user_id %>
-</p>
 
 <%= link_to 'Edit', edit_card_path(@card) %> |
 <%= link_to 'Back', cards_path %>
