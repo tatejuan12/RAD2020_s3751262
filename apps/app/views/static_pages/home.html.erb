@@ -5,8 +5,25 @@
   </head>
   <body>
     <main>
-      <div></div>
-      <div></div>
+      <div>
+        <filters>
+          <div>Recent Post</div>
+          <div>Selected Post</div>
+          <div>My Settings</div>
+          <div>Search</div>
+          <div>New Post</div>
+        </filters>
+        <div id="cards_container">
+          <% CardsController.index.each do |card| %>
+            <div id="grid">
+              <h3 id="card_title"><a href="#"><%=card.title%></a></h1>
+              <div><div class="card_line"><%=UsersController.get(card.user_id).username%></div><div class="card_line card_timestamp"><%=card.created_at%></div><div class="card_line"><%=card.category%></div></div>
+              <div class="card_justify"><div class="card_line_comments"><%=image_tag("comments.png", size: "30", alt: "Comments")%><%=card.comments%></div><div class="card_line card_comments"><%=image_tag("views.png", size: "30", alt: "Comments")%><%=card.views%></div></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div>Recent Users</div>
     </main>
 
   </body>

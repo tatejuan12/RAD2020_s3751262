@@ -19,11 +19,49 @@ $gray-medium-light: #eaeaea;
 body {
   padding-top: 60px;
 }
-
+main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.card_line {
+  display: inline-block;
+}
+.card_line_comments {
+  display: inline-block;
+}
+.card_timestamp {
+  margin: 0% 10% 0% 10%;
+}
+.card_comments {
+  margin: 0% 0% 0% 5%;
+}
+.card_justify {
+  text-align: right;
+}
+filters {
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr 5fr 1.5fr;
+  background-color: hsl(0, 0%, 90%);
+}
+#cards_container {
+  margin-top: 2%;
+  background-color: hsl(0, 0%, 85%);
+  border: solid black 1px;
+  
+}
+filters div {
+  padding: 1%;
+  border: solid black thin;
+}
 section {
   overflow: auto;
 }
-
+#grid {
+  width: 97%;
+  padding: 1%;
+  background-color: white;
+  margin: 0.5% 1.5% 0.5% 1.5%;
+}
 textarea {
   resize: vertical;
 }

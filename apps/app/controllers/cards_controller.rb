@@ -3,7 +3,7 @@ class CardsController < ApplicationController
 
   # GET /cards
   # GET /cards.json
-  def index
+  def self.index
     @cards = Card.all
   end
 
