@@ -38,8 +38,11 @@ main {
 .card_justify {
   text-align: right;
 }
-#card_title {
-  
+#new_post {
+  background-color: hsl(90, 100%, 30%);
+  height: 100%;
+  text-align: center;
+  color: white;
 }
 filters {
   display: grid;

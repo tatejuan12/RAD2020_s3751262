@@ -22,13 +22,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :comments %>
-    <%= form.number_field :comments %>
+    <%= form.hidden_field :comments, value: 0 %>
   </div>
 
   <div class="field">
-    <%= form.label :views %>
-    <%= form.number_field :views %>
+    <%= form.hidden_field :views, value: -1 %>
   </div>
 
   <div class="field">

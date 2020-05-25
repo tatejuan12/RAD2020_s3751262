@@ -7,6 +7,15 @@ class CardsController < ApplicationController
     @cards = Card.all
   end
 
+  def self.sortasc
+    @cards = Card.order(created_at: :desc)
+  end
+
+  def self.addview(card)
+    card.views += 1
+    card.save
+    nil
+  end
   # GET /cards/1
   # GET /cards/1.json
   def show
