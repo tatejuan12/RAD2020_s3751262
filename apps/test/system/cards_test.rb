@@ -14,7 +14,7 @@ class CardsTest < ApplicationSystemTestCase
     visit cards_url
     click_on "New Card"
 
-    fill_in "Category", with: @card.category
+    fill_in "topic_id", with: @card.topic_id
     fill_in "Comments", with: @card.comments
     fill_in "Title", with: @card.title
     fill_in "User", with: @card.user_id
@@ -29,7 +29,7 @@ class CardsTest < ApplicationSystemTestCase
     visit cards_url
     click_on "Edit", match: :first
 
-    fill_in "Category", with: @card.category
+    fill_in "topic_id", with: @card.topic_id
     fill_in "Comments", with: @card.comments
     fill_in "Title", with: @card.title
     fill_in "User", with: @card.user_id

@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
 
   # GET /topics
   # GET /topics.json
-  def index
+  def self.index
     @topics = Topic.all
   end
 
@@ -16,14 +16,26 @@ class TopicsController < ApplicationController
     @topic = Topic.find(id)
   end
 
+
+
   # GET /topics/new
   def new
     @topic = Topic.new
   end
-
+  def update
+    respond_to do |format|
+      if @topic.update(card_params)
+        format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
+        format.json { render :show, status: :ok, location: @topic }
+      else
+        format.html { render :edit }
+        format.json { render json: @topic.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   # POST /topics
   # POST /topics.json
-  def create
+  def self.create
     @topic = Topic.new(topic_params)
 
     respond_to do |format|
