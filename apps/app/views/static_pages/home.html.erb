@@ -25,7 +25,8 @@
           <% CardsController.sortasc.first(10).each do |card| %>
             <div id="grid">
               <h3 id="card_title"><a href="cards/<%=card.id%>"><%=card.title%></a></h1>
-              <div>
+              <div class="grid_line1">
+                <%= gravatar_for card.user %>
                 <div class="card_line"><%=UsersController.get(card.user_id).username%></div>
                 <div class="card_line card_timestamp"><%=card.created_at%></div>
                 <div class="card_line"><%= TopicsController.get(card.topic_id).title%></div>
@@ -39,13 +40,13 @@
         </div>
       </div>
       <div id="other_container">
-        <div id="user_title">Users:</div>
+        <div class="other_title">Users:</div>
         <div id="user_container">
           <% UsersController.index.each do |user| %>
-            <span class="user_card"> <%= gravatar_for user %><a href="users/<%=user.id%>"><%=user.username%></a></span>
+            <a href="users/<%=user.id%>"><span class="user_card"> <%= gravatar_for user %><%=user.username%></span></a>
           <% end %>
         </div>
-        <div id="topic_title">Topics:</div>
+        <div class="other_title">Topics:</div>
         <div id="topic_container">
           <% TopicsController.index.each do |topic| %>
             <span class="topic_card"> <a href="topics/<%=topic.id%>"><%=topic.title%></a></span>

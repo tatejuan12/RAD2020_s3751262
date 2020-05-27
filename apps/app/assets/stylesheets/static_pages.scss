@@ -1,20 +1,21 @@
-@import "bootstrap-sprockets"; 
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 $gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
-  box-sizing:border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .debug_dump {
-  clear:both;
-  float:left;
-  width:100%;
-  margin-top:45px;
-  @include box_sizing;}
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
 
 body {
   padding-top: 60px;
@@ -53,12 +54,17 @@ filters {
   margin-top: 2%;
   background-color: hsl(0, 0%, 85%);
   border: solid black 1px;
-  
+
 }
 filters div {
   padding: 1%;
   border: solid black thin;
 }
+a:hover {
+  color: orange;
+  text-decoration: none;
+}
+
 section {
   overflow: auto;
 }
@@ -68,6 +74,13 @@ section {
   background-color: white;
   margin: 0.5% 1.5% 0.5% 1.5%;
 }
+.grid_line1 {
+  img {
+    border-radius: 25%;
+    width: 3.7vw;
+  }
+}
+
 #other_container {
   margin: 16% 0% 0% 7%;
   border: solid black thin;
@@ -78,11 +91,17 @@ section {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: left space-evenly ;
+  justify-content: left space-evenly;
   flex-grow: 0;
   margin: 5% 0% 9%;
 }
-
+.other_title {
+  border-top: solid grey medium;
+  padding-left: 10%;
+  border-left: solid hsl(0, 100%, 76%) thick;
+  font-size: 118%;
+  margin-bottom: 10%;
+}
 #user_card {
   flex-shrink: 4%;
 }
@@ -96,15 +115,9 @@ section {
   flex-wrap: wrap;
   justify-content: center;
 }
-#topic_title {
-  border-top:solid grey medium;
-  padding-left: 10%;
-  border-left: solid hsl(0, 100%, 76%) thick ;
-  font-size: 118%;
-  margin-bottom: 10%;
-}
+
 .topic_card {
-  border:solid hsl(0, 100%, 76%) thick ;
+  border: solid hsl(0, 100%, 76%) thick;
   border-radius: 10%;
   margin: 2%;
   flex-shrink: 4;
@@ -121,7 +134,12 @@ textarea {
   margin-bottom: 10px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1;
 }
 
@@ -164,63 +182,63 @@ p {
 
 /* footer */
 footer {
-  margin-top: 45px;
+  //margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
+  background-color: hsl(0, 0%, 90%);
+  margin: 3% 10% 3% 10%;
+  border-radius: 1%/100%;
   a {
     color: $gray;
     &:hover {
       color: $gray-darker;
     }
   }
-  small {
-    float: left;
+  nav {
+    text-align: center;
   }
+}
+
+input,
+textarea,
+select,
+.uneditable-input {
+  border: 1pxsolid#bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
   ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
+    color: red;
+    margin: 0030px0;
   }
 }
 
-input,textarea,select,.uneditable-input{
-  border:1pxsolid#bbb;
-  width:100%;
-  margin-bottom:15px;@include box_sizing;
-}
-input{
-  height:auto!important;
-}
-
-#error_explanation{
-  color:red;
-  ul{
-    color:red;
-    margin:0030px0;
-  }
-}
-
-.field_with_errors{
+.field_with_errors {
   @extend.has-error;
 
-.form-control{
-    color:$state-danger-text;
+  .form-control {
+    color: $state-danger-text;
   }
 }
 
-.checkbox{
-  margin-top:-10px;
-  margin-bottom:10px;
-  span{
-    margin-left:20px;
-    font-weight:normal;}
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
   }
-  
-  #session_remember_me{
-    width:auto;
-    margin-left:0;
-  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
