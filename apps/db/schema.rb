@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_044313) do
 
   create_table "cards", force: :cascade do |t|
     t.string "title"
+    t.text "content"
     t.string "topic_id"
     t.integer "comments"
     t.integer "views"

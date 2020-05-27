@@ -8,6 +8,9 @@
   <strong>Topic:</strong>
   <%= TopicsController.get(@card.topic_id).title %>
 </p>
+<div id="content_container">
+  <%= @card.content%>
+</div>
 <p>
   <strong>Comments:</strong>
   <%= @card.comments %>

@@ -1,3 +1,9 @@
-// Place all the styles related to the Cards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#content_container {
+    width: 80%;
+    max-height: 30vh;
+    overflow: scroll;
+    word-wrap:break-word;
+    border: solid black thin;
+    border-radius: 3%/100%;
+    padding: 1%;
+}

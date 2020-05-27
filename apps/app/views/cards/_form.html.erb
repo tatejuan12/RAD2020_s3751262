@@ -16,6 +16,11 @@
     <%= form.text_field :title %>
   </div>
 
+  <div class="field_content">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
   <div class="field">
     <%= form.label :Topic %>
     <%= form.select:topic_id, Topic.all.collect{|s| [( s.title), s.id]}%>
