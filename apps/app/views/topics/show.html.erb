@@ -1,22 +1,9 @@
-<p id="notice"><%= notice %></p>
-<h1>
-  <strong>Topic:</strong>
-  <%= @topic.title %>
-</h1>
-<div id="cards_container">
-  <% @topic.cards.each do |card| %>
-    <div id="grid">
-      <h3 id="card_title"><a href="cards/<%=card.id%>"><%=card.title%></a></h1>
-      <div>
-        <div class="card_line"><%=UsersController.get(card.user_id).username%></div>
-        <div class="card_line card_timestamp"><%=card.created_at%></div>
-        <div class="card_line"><%= @topic.title%></div>
-      </div>
-      <div class="card_justify">
-        <div class="card_line_comments"><%=image_tag("comments.png", size: "30", alt: "Comments")%><%=card.comments%></div>
-        <div class="card_line card_comments"><%=image_tag("views.png", size: "30", alt: "Comments")%><%=card.views%></div>
-      </div>
-    </div>
-  <% end %>
-</div>
-<%= link_to 'Back', root_path %>
+<!--<%#=TopicsController.setcurrtopic(@topic.id )%> -->
+<%if @topic.id != TopicsController.prevtopicget%>
+  <%=TopicsController.prevtopicset(@topic.id)%>
+  <%= controller.redirect_to root_url(:topic=>@topic.id)%>
+<%else%>
+  <%=controller.redirect_to root_url%>
+<%end%>
+
+

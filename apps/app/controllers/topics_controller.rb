@@ -6,7 +6,13 @@ class TopicsController < ApplicationController
   def self.index
     @topics = Topic.all
   end
-
+  def self.prevtopicset(id)
+    @prevtopic = id
+  end
+  def self.prevtopicget
+    @prevtopic
+  end
+  def
   # GET /topics/1
   # GET /topics/1.json
   def show
@@ -15,7 +21,6 @@ class TopicsController < ApplicationController
   def self.get(id)
     @topic = Topic.find(id)
   end
-
 
 
   # GET /topics/new

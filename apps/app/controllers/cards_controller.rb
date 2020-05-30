@@ -6,7 +6,6 @@ class CardsController < ApplicationController
   def self.index
     @cards = Card.all
   end
-
   def self.sortasc
     @cards = Card.order(created_at: :desc)
   end
@@ -64,7 +63,7 @@ class CardsController < ApplicationController
   def destroy
     @card.destroy
     respond_to do |format|
-      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Card was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
