@@ -10,7 +10,7 @@ class User < ApplicationRecord
                                       uniqueness: { case_sensitive: false }
     VALID_MOBILE_REGEX = /\({0,1}((0|\+61)(2|4|3|7|8)){0,1}\){0,1}(\ |-){0,1}[0-9]{2}(\ |-){0,1}[0-9]{2}(\ |-){0,1}[0-9]{1}(\ |-){0,1}[0-9]{3}/
     validates :mobile, presence: true, format: { with: VALID_MOBILE_REGEX }, uniqueness: true
-    validates :password, presence: true, length: { minimum: 6 }
+    validates :password, presence: true, length: { minimum: 8 }
     has_secure_password
 
     # return the hash digest of the given string
