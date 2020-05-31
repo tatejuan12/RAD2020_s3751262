@@ -1,25 +1,18 @@
-c## Building the rails App
+Juan Tate -s3751262
 
-1. Run `docker-compose build` after every Gemfile change or to build the containers
+Distinction
 
-## Running the rails App
-1. Run `docker-compose up` to run the rails app
-2. hit `http://0.0.0.0:3000`
+Time= 108 hours
 
-## Debugging the Rails App
+https://github.com/tatejuan12/RAD2020_s3751262
 
-1. Add `binding.pry` or `byebug` in your code where you want to put the breakpoint.
-2. Run `docker-compose run --service-port --rm web` in your console to run the rails app in Debug mode
-3. Access the endpoint you ae debugging to go into debugging mode in pry or byebug
+https://git.heroku.com/calm-falls-20080.git
 
-## Rails CHEATSHEET using docker
-
-1. `docker-compose run --rm web rails new . --force --no-deps --database=postgresql`
-2. `docker-compose run --rm web bundle install`
-3. `docker-compose run --rm web bundle update`
-4. `docker-compose run --rm web rails db:create`
-5. `docker-compose run --rm web rails db:migrate`
-6. `docker-compose run --rm web rails db:drop`
-7. `docker-compose run --rm web rails assets:precompile`
-8. `docker-compose run --rm web rails console`
-9. `docker-compose run --rm web rails test`
+heroku deployment logs {
+2020-05-31T15:30:16.000000+00:00 app[api]: Build started by user s3751262@student.rmit.edu.au
+2020-05-31T15:31:28.819507+00:00 app[api]: Deploy 393af93a by user s3751262@student.rmit.edu.au
+2020-05-31T15:31:28.819507+00:00 app[api]: Release v8 created by user s3751262@student.rmit.edu.au
+2020-05-31T15:31:29.043142+00:00 heroku[web.1]: State changed from down to starting
+2020-05-31T15:31:32.000000+00:00 app[api]: Build succeeded
+2020-05-31T15:31:37.233848+00:00 heroku[web.1]: State changed from starting to up
+}
