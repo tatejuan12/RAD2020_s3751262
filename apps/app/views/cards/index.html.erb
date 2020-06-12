@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Category</th>
+      <th>Topic</th>
       <th>Comments</th>
       <th>Views</th>
       <th>User</th>
@@ -18,7 +18,7 @@
     <% CardsController.index.each do |card| %>
       <tr>
         <td><%= card.title %></td>
-        <td><%= card.category %></td>
+        <td><%= card.topic_id %></td>
         <td><%= card.comments %></td>
         <td><%= card.views %></td>
         <td><%= card.user_id %></td>

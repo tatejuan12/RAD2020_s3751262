@@ -16,19 +16,22 @@
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
+  <div class="field_content">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
   </div>
 
   <div class="field">
-    <%= form.label :comments %>
-    <%= form.number_field :comments %>
+    <%= form.label :Topic %>
+    <%= form.select:topic_id, Topic.all.collect{|s| [( s.title), s.id]}%>
   </div>
 
   <div class="field">
-    <%= form.label :views %>
-    <%= form.number_field :views %>
+    <%= form.hidden_field :comments, value: 0 %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :views, value: -1 %>
   </div>
 
   <div class="field">

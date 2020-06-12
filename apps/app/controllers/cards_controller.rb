@@ -6,7 +6,15 @@ class CardsController < ApplicationController
   def self.index
     @cards = Card.all
   end
+  def self.sortasc
+    @cards = Card.order(created_at: :desc)
+  end
 
+  def self.addview(card)
+    card.views += 1
+    card.save
+    nil
+  end
   # GET /cards/1
   # GET /cards/1.json
   def show
@@ -55,7 +63,7 @@ class CardsController < ApplicationController
   def destroy
     @card.destroy
     respond_to do |format|
-      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Card was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -68,6 +76,6 @@ class CardsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def card_params
-      params.require(:card).permit(:title, :category, :comments, :views, :user_id)
+      params.require(:card).permit(:title, :content, :topic_id, :comments, :views, :user_id)
     end
 end

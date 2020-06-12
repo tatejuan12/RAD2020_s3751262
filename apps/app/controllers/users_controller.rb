@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+def self.index
+  @user = User.all
+end
+
   def self.get(id)
     @user = User.find(id)
   end

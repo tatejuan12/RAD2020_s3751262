@@ -1,4 +1,5 @@
 class Card < ApplicationRecord
     belongs_to:user
-    validates :title, :category, :comments, :views, :user_id, presence: true
+    has_one:topic
+    validates :title, :content, :topic_id, :comments, :views, :user_id, presence: true
 end

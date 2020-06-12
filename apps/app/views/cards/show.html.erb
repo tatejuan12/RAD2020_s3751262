@@ -1,27 +1,27 @@
 <p id="notice"><%= notice %></p>
-
+<%= CardsController.addview(@card)%>
 <h1>
   <%= @card.title %>
 </h1>
-<h3>By user: <%=UsersController.get(@card.user_id).username%> </h3>
+<h3>By user: <%=@card.user.username%> </h3>
 <p>
-  <strong>Category:</strong>
-  <%= @card.category %>
+  <strong>Topic:</strong>
+  <%= TopicsController.get(@card.topic_id).title %>
 </p>
-
+<div id="content_container">
+  <%= @card.content%>
+</div>
 <p>
   <strong>Comments:</strong>
   <%= @card.comments %>
 </p>
-
 <p>
   <strong>Views:</strong>
   <%= @card.views %>
 </p>
 <p>
+  <strong>Creation date:</strong>
   <%= @card.created_at %>
 </p>
-
-
 <%= link_to 'Edit', edit_card_path(@card) %> |
 <%= link_to 'Back', cards_path %>

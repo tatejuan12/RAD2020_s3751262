@@ -17,7 +17,7 @@ class CardsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create card" do
     assert_difference('Card.count') do
-      post cards_url, params: { card: { category: @card.category, comments: @card.comments, title: @card.title, user_id: @card.user_id, views: @card.views } }
+      post cards_url, params: { card: { topic_id: @card.topic_id, comments: @card.comments, title: @card.title, user_id: @card.user_id, views: @card.views } }
     end
 
     assert_redirected_to card_url(Card.last)
@@ -34,7 +34,7 @@ class CardsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update card" do
-    patch card_url(@card), params: { card: { category: @card.category, comments: @card.comments, title: @card.title, user_id: @card.user_id, views: @card.views } }
+    patch card_url(@card), params: { card: { topic_id: @card.topic_id, comments: @card.comments, title: @card.title, user_id: @card.user_id, views: @card.views } }
     assert_redirected_to card_url(@card)
   end
 

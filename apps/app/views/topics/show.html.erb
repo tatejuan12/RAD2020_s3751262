@@ -1,0 +1,9 @@
+<!--<%#=TopicsController.setcurrtopic(@topic.id )%> -->
+<%if @topic.id != TopicsController.prevtopicget%>
+  <%=TopicsController.prevtopicset(@topic.id)%>
+  <%= controller.redirect_to root_url(:topic=>@topic.id)%>
+<%else%>
+  <%=controller.redirect_to root_url%>
+<%end%>
+
+

@@ -7,24 +7,89 @@
     <main>
       <div>
         <filters>
-          <div>Recent Post</div>
+          <div><%=link_to "Recent Posts", root_path%></div>
           <div>Selected Post</div>
           <div>My Settings</div>
           <div>Search</div>
-          <div>New Post</div>
+          <%if logged_in?%>
+            <%= link_to new_card_path do %>
+              <div id="new_post">New Post</div>
+            <% end %>
+          <% else %>
+            <%= link_to login_path do %>
+              <div id="new_post">New Post</div>
+            <% end %>
+          <% end %>
         </filters>
-        <div id="cards_container">
-          <% CardsController.index.each do |card| %>
+
+        <div id="cards_container"> 
+        <%if params[:topic].nil?%>
+          <%= TopicsController.prevtopicset(nil)%>
+          <% CardsController.sortasc.first(10).each do |card| %>
             <div id="grid">
-              <h3 id="card_title"><a href="#"><%=card.title%></a></h1>
-              <div><div class="card_line"><%=UsersController.get(card.user_id).username%></div><div class="card_line card_timestamp"><%=card.created_at%></div><div class="card_line"><%=card.category%></div></div>
-              <div class="card_justify"><div class="card_line_comments"><%=image_tag("comments.png", size: "30", alt: "Comments")%><%=card.comments%></div><div class="card_line card_comments"><%=image_tag("views.png", size: "30", alt: "Comments")%><%=card.views%></div></div>
+              <h3 id="card_title"><%= link_to card.title, card %></h1>
+              <div class="grid_line1">
+                <%= gravatar_for card.user %>
+                <div class="card_line"><%=UsersController.get(card.user_id).username%></div>
+                <div class="card_line card_timestamp"><%=card.created_at%></div>
+                <div class="card_line"><%= TopicsController.get(card.topic_id).title%></div>
+              </div>
+              <div class="card_justify">
+                <% if logged_in? %>
+                  <%if card.user_id == current_user.id%>
+                    <div class="edits">
+                      <small><%= link_to 'Edit', edit_card_path(card) %></small>
+                      <small><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></small>
+                    </div>
+                  <%end%>
+              <%end%>
+                <div class="card_line_comments"><%=image_tag("comments.png", size: "30", alt: "Comments")%><%=card.comments%></div>
+                <div class="card_line card_comments"><%=image_tag("views.png", size: "30", alt: "Comments")%><%=card.views%></div>
+              </div>
             </div>
+          <% end %>
+        <%else%>
+          <% TopicsController.get(params[:topic]).cards.sort_by(&:created_at).reverse.each do |card| %>
+            <div id="grid">
+              <h3 id="card_title"><%= link_to card.title, card %></h1>
+              <div class="grid_line1">
+                <%= gravatar_for card.user %>
+                <div class="card_line"><%=UsersController.get(card.user_id).username%></div>
+                <div class="card_line card_timestamp"><%=card.created_at%></div>
+                <div class="card_line"><%= TopicsController.get(card.topic_id).title%></div>
+              </div>
+              <div class="card_justify">
+                <% if logged_in? %>
+                  <%if card.user_id == current_user.id%>
+                    <div class="edits">
+                      <small><%= link_to 'Edit', edit_card_path(card) %></small>
+                      <small><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></small>
+                    </div>
+                  <%end%>
+              <%end%>
+                <div class="card_line_comments"><%=image_tag("comments.png", size: "30", alt: "Comments")%><%=card.comments%></div>
+                <div class="card_line card_comments"><%=image_tag("views.png", size: "30", alt: "Comments")%><%=card.views%></div>
+              </div>
+            </div>
+          <% end %>
+        <%end%>
+        </div>
+      </div>
+      <div id="other_container">
+        <div class="other_title">Users:</div>
+        <div id="user_container">
+          <% UsersController.index.each do |user| %>
+            <a href="users/<%=user.id%>"><span class="user_card"> <%= gravatar_for user %><%=user.username%></span></a>
+          <% end %>
+        </div>
+        <div class="other_title">Topics:</div>
+        <div id="topic_container">
+          <% TopicsController.index.each do |topic| %>
+            <span class="topic_card"> <a href="topics/<%=topic.id%>"><%=topic.title%></a></span>
           <% end %>
         </div>
       </div>
-      <div>Recent Users</div>
-    </main>
-
-  </body>
+    </div>
+  </main>
+</body>
 </html>
